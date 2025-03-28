@@ -10,7 +10,7 @@
     Ganymede is a Twitch VOD and Live Stream archiving platform with a real-time chat experience. Every archive includes a rendered chat for viewing outside of Ganymede. Files are saved in a friendly format allowing for use without Ganymede.
   </p>
 </div>
- 
+  
 ---
 
 ## Screenshot
