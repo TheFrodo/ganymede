@@ -24,7 +24,7 @@ https://github.com/user-attachments/assets/184451f1-e3ce-4329-8516-a9842648c01b
 Ganymede allows archiving of past streams (VODs) and live streams with a real-time chat playback along with a archival-friendly rendered chat. All files are saved in a friendly way that doesn't require Ganymede to view them (see [file structure](https://github.com/Zibbp/ganymede/wiki/File-Structure)). Ganymede is the successor of [Ceres](https://github.com/Zibbp/Ceres).
 
 ## Features
-
+ 
 - Realtime Chat Playback
 - SSO / OAuth authentication ([wiki](https://github.com/Zibbp/ganymede/wiki/SSO---OpenID-Connect))
 - Light/dark mode toggle.
