@@ -4,13 +4,15 @@
     <img src=".github/ganymede-logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h2 align="center">Ganymede</h2>
-
+  <h2 align="center">DuckVOD</h2>
+    <a>
+    <h4 align="center">an Ganymede forge </h4>
+  </a>
   <p align="center">
     Ganymede is a Twitch VOD and Live Stream archiving platform with a real-time chat experience. Every archive includes a rendered chat for viewing outside of Ganymede. Files are saved in a friendly format allowing for use without Ganymede.
   </p>
 </div>
-  
+  <h2 align="center", color="red">this is not the real ganymede </h2>
 ---
 
 ## Screenshot

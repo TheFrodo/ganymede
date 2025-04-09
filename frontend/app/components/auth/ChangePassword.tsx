@@ -6,9 +6,9 @@ import { useState } from "react";
 import { z } from "zod";
 
 const schema = z.object({
-  password: z.string().min(8, { message: "Password should have at least 8 characters" }),
-  new_password: z.string().min(8, { message: "Password should have at least 8 characters" }),
-  confirm_new_password: z.string().min(8, { message: "Password should have at least 8 characters" })
+  password: z.string().min(8, { message: "Das Passwort sollte mindestens 8 Zeichen haben" }),
+  new_password: z.string().min(8, { message: "Das Passwort sollte mindestens 8 Zeichen enthalten" }),
+  confirm_new_password: z.string().min(8, { message: "Das Passwort sollte mindestens 8 Zeichen enthalten" })
 })
 
 type Props = {
@@ -31,7 +31,7 @@ const AuthChangePassword = ({ handleClose }: Props) => {
   const handleSubmit = async (password: string, newPassword: string, confirmNewPassword: string) => {
     if (newPassword != confirmNewPassword) {
       showNotification({
-        message: "New passwords must match",
+        message: "Neue Passwörter müssen übereinstimmen",
         color: "red"
       })
       return
@@ -40,7 +40,7 @@ const AuthChangePassword = ({ handleClose }: Props) => {
       setLoading(true)
       await authChangePassword(password, newPassword, confirmNewPassword)
       showNotification({
-        message: "Password changed"
+        message: "Passwort geändert"
       })
       handleClose()
     } catch (error) {
@@ -54,26 +54,26 @@ const AuthChangePassword = ({ handleClose }: Props) => {
     <div>
       <form onSubmit={form.onSubmit((values) => handleSubmit(values.password, values.new_password, values.confirm_new_password))}>
         <PasswordInput
-          label="Current password"
+          label="Aktuelles Passwort"
           key={form.key('password')}
           {...form.getInputProps('password')}
           radius="md"
         />
         <PasswordInput
-          label="New password"
+          label="Neues Passwort"
           key={form.key('new_password')}
           {...form.getInputProps('new_password')}
           radius="md"
         />
         <PasswordInput
-          label="Confirm new password"
+          label="Bestätige das neue Passwort"
           key={form.key('confirm_new_password')}
           {...form.getInputProps('confirm_new_password')}
           radius="md"
         />
 
         <Button mt={10} type="submit" loading={loading} fullWidth>
-          Change Password
+          Passwort ändern
         </Button>
       </form>
     </div>

@@ -67,7 +67,7 @@ export const MultistreamTimeline = ({ vodPlaybackOffsets, globalTime, startDateM
 
   const updateTimelineTooltip = (timelineBar: HTMLDivElement | null, event: React.PointerEvent) => {
     const timeUnderPointer = timeAtMousePosition(timelineBar, event);
-    setTimelineTooltipText(timeUnderPointer != null ? dayjs(timeUnderPointer).format("YYYY/MM/DD HH:mm:ss") : "");
+    setTimelineTooltipText(timeUnderPointer != null ? dayjs(timeUnderPointer).format("DD.MM.YYYY HH:mm:ss") : "");
   }
 
   const onStreamerNameDragStart = (event: React.DragEvent, streamerId: string) => {
@@ -79,7 +79,7 @@ export const MultistreamTimeline = ({ vodPlaybackOffsets, globalTime, startDateM
     onStreamerDragStart();
   }
 
-  const timelineEnd = dayjs(endDateMs).format("YYYY/MM/DD HH:mm:ss")
+  const timelineEnd = dayjs(endDateMs).format("DD.MM.YYYY HH:mm:ss")
 
   return <Stack gap="sm">
     <Group justify="center" gap="xs">
@@ -143,7 +143,7 @@ export const MultistreamTimeline = ({ vodPlaybackOffsets, globalTime, startDateM
     <Center>
       <Group gap="sm">
         <div>
-          {dayjs(getCurrentTime()).format("YYYY/MM/DD HH:mm:ss")} / {timelineEnd}
+          {dayjs(getCurrentTime()).format("DD.MM.YYYY HH:mm:ss")} / {timelineEnd}
         </div>
       </Group>
     </Center>

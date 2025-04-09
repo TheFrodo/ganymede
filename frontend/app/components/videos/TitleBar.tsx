@@ -46,14 +46,14 @@ const VideoTitleBar = ({ video }: Params) => {
 
             {clipFullVideo && (
               <Group mr={15}>
-                <Button variant="default" size="xs" component={Link} href={`/videos/${clipFullVideo.id}?t=${video.clip_vod_offset}`}>Go To Full Video</Button>
+                <Button variant="default" size="xs" component={Link} href={`/videos/${clipFullVideo.id}?t=${video.clip_vod_offset}`}>Gehe zum vollständigen Video</Button>
               </Group>
             )}
 
             {video.views && (
               <Group mr={15}>
                 <Tooltip
-                  label={`${video.views.toLocaleString()} source views`}
+                  label={`${video.views.toLocaleString()} Aufrufe auf Twitch`}
                   openDelay={250}
                 >
                   <div className={classes.titleBarBadge}>
@@ -67,7 +67,7 @@ const VideoTitleBar = ({ video }: Params) => {
             {video.local_views && (
               <Group mr={15}>
                 <Tooltip
-                  label={`${video.local_views.toLocaleString()} local views`}
+                  label={`${video.local_views.toLocaleString()} Lokale Aufrufe`}
                   openDelay={250}
                 >
                   <div className={classes.titleBarBadge}>
@@ -80,12 +80,12 @@ const VideoTitleBar = ({ video }: Params) => {
 
             <Group mr={15}>
               <Tooltip
-                label={`Originally streamed at ${video.streamed_at}`}
+                label={`Ursprünglich gestreamt am ${video.streamed_at}`}
                 openDelay={250}
               >
                 <div className={classes.titleBarBadge}>
                   <Text mr={5}>
-                    {dayjs(video.streamed_at).format("YYYY/MM/DD")}
+                    {dayjs(video.streamed_at).format("DD.MM.YYYY")}
                   </Text>
                   <IconCalendarEvent size={20} />
                 </div>
@@ -105,7 +105,7 @@ const VideoTitleBar = ({ video }: Params) => {
             )}
 
             <Group>
-              <Tooltip label={`Video Type`} openDelay={250}>
+              <Tooltip label={`Video Typ`} openDelay={250}>
                 <div className={classes.titleBarBadge}>
                   <Badge variant="default">
                     {video.type}

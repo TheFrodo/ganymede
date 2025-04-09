@@ -41,7 +41,7 @@ const QueueHeader = ({ queue }: Params) => {
                 </Text>
               </Tooltip>
               <Divider mx={5} orientation="vertical" />
-              <Tooltip label="Internal Ganymede Video ID">
+              <Tooltip label="Internal Video ID">
                 <Text
                   className={classes.queueHeaderHoverText}
                 >
@@ -54,13 +54,13 @@ const QueueHeader = ({ queue }: Params) => {
                 <Text className={classes.liveArchive}>Live Archive</Text>
               )}
 
-              {queue.on_hold && <Text className={classes.onHold}>On Hold</Text>}
+              {queue.on_hold && <Text className={classes.onHold}>In Warteschleife</Text>}
 
-              <Tooltip label="Streamed At">
+              <Tooltip label="Gestreamt">
                 <Text
                   className={classes.queueHeaderHoverText}
                 >
-                  {dayjs(queue.edges.vod.streamed_at).format("YYYY/MM/DD")}
+                  {dayjs(queue.edges.vod.streamed_at).format("DD.MM.YYYY")}
                 </Text>
               </Tooltip>
 

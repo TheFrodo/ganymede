@@ -17,7 +17,7 @@ import MultiDeleteBlockedVideoModalContent from "@/app/components/admin/blocked-
 
 const AdminBlockedVideosPage = () => {
   useEffect(() => {
-    document.title = "Admin - Blocked Videos";
+    document.title = "Admin - Gesperrte Videos";
   }, []);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(20);
@@ -80,9 +80,9 @@ const AdminBlockedVideosPage = () => {
   }
 
   if (isPending) return (
-    <GanymedeLoadingText message="Loading Blocked Videos" />
+    <GanymedeLoadingText message="Lade geblockte Videos" />
   )
-  if (isError) return <div>Error loading blocked videos</div>
+  if (isError) return <div>Fehler beim Laden der geblockten Videos</div>
 
   return (
     <div>

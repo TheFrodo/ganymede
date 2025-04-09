@@ -19,14 +19,14 @@ const ChannelPage = ({ params }: { params: Promise<Params> }) => {
 
   if (isPending) {
     return (
-      <GanymedeLoadingText message="Loading Channel" />
+      <GanymedeLoadingText message="Lade Kanal" />
     );
   }
 
   if (isError) {
     return (
       <Center>
-        <div>Error loading channel</div>
+        <div>Fehler beim Laden des Kanals</div>
       </Center>
     );
   }
