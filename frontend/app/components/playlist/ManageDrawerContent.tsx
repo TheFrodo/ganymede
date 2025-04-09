@@ -53,7 +53,7 @@ const PlaylistManageDrawerContent = ({ videoId }: Params) => {
       queryClient.invalidateQueries({ queryKey: ["video", "playlists", videoId] })
 
       showNotification({
-        message: "Added video to playlist"
+        message: "Das Video wurde zur Playlist hinzugefügt"
       })
 
 
@@ -69,7 +69,7 @@ const PlaylistManageDrawerContent = ({ videoId }: Params) => {
       queryClient.invalidateQueries({ queryKey: ["video", "playlists", videoId] })
 
       showNotification({
-        message: "Removed video from playlist"
+        message: "Das Video wurde von der Playlist entfernt"
       })
     } catch (error) {
       console.error(error)
@@ -78,11 +78,11 @@ const PlaylistManageDrawerContent = ({ videoId }: Params) => {
 
 
   if (isVideoPlaylistsPending || isPlaylistsPending) {
-    return <GanymedeLoadingText message="Loading Playlists" />;
+    return <GanymedeLoadingText message="Playlists werden geladen..." />;
   }
 
   if (isVideoPlaylistsError || isPlaylistsError) {
-    return <div>Error loading playlists</div>;
+    return <div>Fehler beim Laden der Playlists</div>;
   }
 
   return (
@@ -92,11 +92,11 @@ const PlaylistManageDrawerContent = ({ videoId }: Params) => {
         value={selectedPlaylistValue}
         onChange={setSelectedPlaylistValue}
         searchable
-        placeholder="Add Video to Playlist"
+        placeholder="Füge das Video zur Playlist hinzu"
         w="100%"
       />
 
-      <Button mt={10} onClick={addVideoToPlayist} fullWidth>Add to Playlist</Button>
+      <Button mt={10} onClick={addVideoToPlayist} fullWidth>Zur Playlist hinzufügen</Button>
 
       <Divider my="md" />
 

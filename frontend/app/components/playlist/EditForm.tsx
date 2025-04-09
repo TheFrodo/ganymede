@@ -74,11 +74,11 @@ const PlaylistEditForm = ({ playlist, mode, handleClose }: Props) => {
         />
         <TextInput
           label="Description"
-          description="Playlist description"
+          description="Playlist beschreibung"
           key={form.key('description')}
           {...form.getInputProps('description')}
         />
-        <Button mt={10} type="submit" fullWidth loading={editButtonLoading}>{mode == PlaylistEditFormMode.Create ? 'Create Playlist' : 'Edit Playlist'}</Button>
+        <Button mt={10} type="submit" fullWidth loading={editButtonLoading}>{mode == PlaylistEditFormMode.Create ? 'Erstelle eine Playlist' : 'Bearbeite eine Playlist'}</Button>
       </form>
     </div>
   );

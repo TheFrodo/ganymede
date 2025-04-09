@@ -10,7 +10,7 @@ export default function Home() {
   const { isLoggedIn } = useAuthStore();
 
   useEffect(() => {
-    document.title = "Ganymede";
+    document.title = "DuckVOD - Alle Livestreams im Teich";
   }, []);
 
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       {isLoggedIn && (
         <Box>
           <Center>
-            <Title>Continue Watching</Title>
+            <Title>Weiterschauen</Title>
           </Center>
           <Container mt={10} size={"7xl"}>
             <ContinueWatching count={4} />
@@ -34,7 +34,7 @@ export default function Home() {
 
       <Box>
         <Center>
-          <Title>Recently Archived</Title>
+          <Title>Zuletzt Archiviert</Title>
         </Center>
         <Container mt={10} size={"7xl"}>
           <RecentlyArchived count={8} />

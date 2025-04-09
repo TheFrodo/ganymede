@@ -18,7 +18,7 @@ const RecentlyArchived = ({ count }: Props) => {
   const { data, isPending, isError } = useFetchVideosFilter({ limit: count, offset: 0, is_processing: showProcessingVideosInRecentlyArchived })
 
   if (isPending) return (<div></div>)
-  if (isError) return <div>Error loading recently archived videos</div>
+  if (isError) return <div>Fehler beim Laden des letzten Archivierten Videos</div>
 
   return (
     <div>

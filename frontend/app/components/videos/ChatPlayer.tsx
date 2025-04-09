@@ -137,7 +137,7 @@ const ChatPlayer = ({ video }: Params) => {
     content_offset_seconds: 0,
     // @ts-expect-error additional fields unnecessary
     commenter: {
-      display_name: "Ganymede",
+      display_name: "DuckVOD",
     },
     // @ts-expect-error additional fields unnecessary
     message: {
@@ -262,7 +262,7 @@ const ChatPlayer = ({ video }: Params) => {
   const clearChat = useCallback(() => {
     setMessagesWithScroll([]);
     internalMessagesRef.current = [];
-    addCustomComment("Time skip detected. Chat cleared.");
+    addCustomComment("Zeitsprung erkannt. Chat wurde gelöscht.");
   }, [addCustomComment, setMessagesWithScroll]);
 
   // Tracking processed IDs
@@ -365,14 +365,14 @@ const ChatPlayer = ({ video }: Params) => {
       });
 
       setIsReady(true);
-      addCustomComment("Chat player ready.");
+      addCustomComment("Chat-Player bereit.");
       addCustomComment(
-        `Chat playback contains ${chatMapsRef.current.generalBadgeMap.size.toLocaleString()} badges, ` +
-        `${chatMapsRef.current.subscriptionBadgeMap.size.toLocaleString()} subscription badges, and ` +
-        `${chatMapsRef.current.emoteMap.size.toLocaleString()} emotes.`
+        `Die Chat-Wiedergabe enthält ${chatMapsRef.current.generalBadgeMap.size.toLocaleString()} Abzeichen, ` +
+        `${chatMapsRef.current.subscriptionBadgeMap.size.toLocaleString()} Abzeichen für Abonnements und ` +
+        `${chatMapsRef.current.emoteMap.size.toLocaleString()} Emotes.`
       );
     } catch (error) {
-      handleError(error as Error, "Chat initialization");
+      handleError(error as Error, "Chat-Initialisierung");
     }
   }, [chatEmotes, chatBadges, addCustomComment, handleError, emotesError, badgesError]);
 

@@ -17,7 +17,7 @@ const ContinueWatching = ({ count }: Props) => {
   const { data, isPending, isError } = useGetLastPlaybackVideos(axiosPrivate, count)
 
   if (isPending) return (<div></div>)
-  if (isError) return <div>Error loading last playback videos</div>
+  if (isError) return <div>Fehler beim Laden der letzten Wiedergabe</div>
 
 
   return (

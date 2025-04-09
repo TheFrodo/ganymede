@@ -23,8 +23,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const schema = z.object({
-  username: z.string().min(3, { message: "Username should have at least 3 characters" }),
-  password: z.string().min(8, { message: "Password should have at least 8 characters" })
+  username: z.string().min(3, { message: "Der Benutzername sollte mindestens 3 Zeichen haben" }),
+  password: z.string().min(8, { message: "Das Passwort sollte mindestens 8 Zeichen lang sein" })
 })
 
 export enum AuthFormType {
@@ -64,7 +64,7 @@ export function AuthenticationForm({ type }: Props) {
         await authLogin(username, password)
         await fetchUser()
         showNotification({
-          message: "Logged in"
+          message: "Eingeloogt"
         })
         router.push('/')
       } catch (error) {
@@ -78,7 +78,7 @@ export function AuthenticationForm({ type }: Props) {
         await authRegister(username, password)
         router.push('/login')
         showNotification({
-          message: "Successfully registered, please sign in."
+          message: "Erfolgreich registriert, bitte melde dich an"
         })
       } catch (error) {
         console.error(`Error registering in: ${error instanceof Error ? error.message : String(error)}`)
@@ -114,7 +114,7 @@ export function AuthenticationForm({ type }: Props) {
         <Stack>
           <TextInput
             label="Username"
-            placeholder="Your username"
+            placeholder="Dein Benutzername"
             key={form.key('username')}
             {...form.getInputProps('username')}
             radius="md"
@@ -122,7 +122,7 @@ export function AuthenticationForm({ type }: Props) {
 
           <PasswordInput
             label="Password"
-            placeholder="Your password"
+            placeholder="Dein Passwort"
             key={form.key('password')}
             {...form.getInputProps('password')}
             radius="md"
@@ -133,12 +133,12 @@ export function AuthenticationForm({ type }: Props) {
 
           {(type == AuthFormType.Login) && (
             <Anchor component={Link} href="/register" type="button" c="dimmed" size="xs">
-              {"Don't have an account? Register"}
+              {"Hast du kein Konto? Registriere dich"}
             </Anchor>
           )}
           {(type == AuthFormType.Register) && (
             <Anchor component={Link} href="/login" type="button" c="dimmed" size="xs">
-              {"Already have an account? Login"}
+              {"Hast du schon ein Konto? Logge dich ein"}
             </Anchor>
           )}
           <Button type="submit" loading={loading}>

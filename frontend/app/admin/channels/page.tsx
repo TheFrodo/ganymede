@@ -16,7 +16,7 @@ import DeleteChannelModalContent from "@/app/components/admin/channel/DeleteModa
 
 const AdminChannelsPage = () => {
   useEffect(() => {
-    document.title = "Admin - Channels";
+    document.title = "Admin - Kanäle";
   }, []);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(20);

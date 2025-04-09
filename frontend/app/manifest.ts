@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Ganymede",
-    short_name: "Ganymede",
-    description: "A platform to archive live streams and videos.",
+    name: "DuckVOD",
+    short_name: "DuckVOD",
+    description: "Alle Streams im Teich.",
     start_url: "/",
     display: "standalone",
     background_color: "#141417",

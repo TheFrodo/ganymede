@@ -16,7 +16,7 @@ export function LandingHero() {
 
           <div>
             <Text className={classes.title}>Ganymede</Text>
-            <Title c={theme.colors.gray[3]} mt={5} order={3}>A platform to archive live streams and videos</Title>
+            <Title c={theme.colors.gray[3]} mt={5} order={3}>Eine Plattform zum Archivieren von Livestreams und Videos.</Title>
             <Flex mt={10}>
               <Button
                 variant="gradient"
@@ -25,7 +25,7 @@ export function LandingHero() {
                 href="/channels"
                 className={classes.button}
               >
-                Channels
+                Kanäle
               </Button>
               <Button
                 ml={10}
@@ -42,7 +42,7 @@ export function LandingHero() {
             <Box>
               <Flex justify={"center"} align={"center"}>
                 <div className={classes.logoBackground}></div>
-                <Image src="/images/ganymede_logo.png" height={100} width={100} alt="Ganymede logo" className={classes.logo} />
+                <Image src="/images/duckvod_logo.png" height={100} width={100} alt="DuckVOD Logo" className={classes.logo} />
               </Flex>
             </Box>
           )}

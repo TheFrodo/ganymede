@@ -166,7 +166,7 @@ export function Navbar() {
     <header className={classes.header}>
       <div className={classes.inner}>
         <Group gap={5}>
-          <Image src="/images/ganymede_logo.png" height={32} width={32} alt="Ganymede logo" />
+          <Image src="/images/duckvod_logo.png" height={32} width={32} alt="DuckVOD logo" />
           <Group visibleFrom="md">{mainLinks}</Group>
         </Group>
         <Group gap={5} visibleFrom="md">
@@ -229,7 +229,7 @@ export function Navbar() {
               <Button component={Link} href="/login" variant="default" mr={5}>
                 Log in
               </Button>
-              <Button component={Link} href="/register" variant="default">Sign up</Button>
+              <Button component={Link} href="/register" variant="default">Registrieren</Button>
             </div>
           )}
         </Group>

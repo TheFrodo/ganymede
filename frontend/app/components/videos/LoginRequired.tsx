@@ -25,7 +25,7 @@ const VideoLoginRequired = ({ video }: Params) => {
           <IconLock size={64} />
         </Center>
         <div className={classes.text}>
-          You must be logged in to view this video
+          Du musst eingeloggt sein, um dieses Video anzusehen
         </div>
       </div>
     </div>
