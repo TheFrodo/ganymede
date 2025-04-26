@@ -198,8 +198,8 @@
   },
   "AdminInformationPage": {
     "title": "Admin - Info",
-    "loading": "Loading Ganymede information",
-    "error": "Error loading Ganymede information",
+    "loading": "Loading DuckVOD information",
+    "error": "Error loading DuckVOD information",
     "server": {
       "title": "Server Information",
       "commit": "Commit",
@@ -612,7 +612,7 @@
     "errorLoggingInNotification": "Error logging in",
     "registerSuccessNotification": "Registered successfully, please login",
     "errorRegisteringNotification": "Error registering",
-    "welcomeText": "Welcome to Ganymede",
+    "welcomeText": "Welcome to DuckVOD",
     "ssoButton": "Single Single On (SSO)",
     "localCredentialsLabel": "Or continue with local credentials",
     "usernameLabel": "Username",
@@ -660,7 +660,7 @@
     "saveInformationTitle": "Save Information",
     "downloadThumbnailsTitle": "Download Thumbnails",
     "externalPlatformVideoIdLabel": "External Platform Video ID",
-    "ganymedeVideoIdLabel": "Ganymede Video ID",
+    "DuckVODVideoIdLabel": "DuckVOD Video ID",
     "streamedAtLabel": "Streamed At",
     "taskRestartedNotification": "Task restarted",
     "taskRestartText": "Restart queue task {taskName}?",
@@ -736,7 +736,7 @@
     "gridHeight": "Grid height"
   },
   "LandingHeroComponent": {
-    "subtitle": "A platform to archive live streams and videos",
+    "subtitle": "A platform for archiving livestreams and videos in the pond",
     "channelsButton": "Channels",
     "loginButton": "Login"
   },
