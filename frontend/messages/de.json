@@ -198,8 +198,8 @@
   },
   "AdminInformationPage": {
     "title": "Admin - Info",
-    "loading": "Ganymede-Informationen werden geladen",
-    "error": "Fehler beim Laden der Ganymede-Informationen",
+    "loading": "DuckVOD-Informationen werden geladen",
+    "error": "Fehler beim Laden der DuckVOD-Informationen",
     "server": {
       "title": "Serverinformationen",
       "commit": "Commit",
@@ -597,7 +597,7 @@
     "errorLoggingInNotification": "Fehler beim Anmelden",
     "registerSuccessNotification": "Erfolgreich registriert, bitte Anmelden",
     "errorRegisteringNotification": "Fehler bei der Registrierung",
-    "welcomeText": "Willkommen bei Ganymede",
+    "welcomeText": "Willkommen bei DuckVOD",
     "ssoButton": "Single Single On (SSO)",
     "localCredentialsLabel": "Oder mit lokalen Anmeldeinformationen fortfahren",
     "usernameLabel": "Benutzername",
@@ -642,7 +642,7 @@
     "saveInformationTitle": "Informationen speichern",
     "downloadThumbnailsTitle": "Vorschaubilder herunterladen",
     "externalPlatformVideoIdLabel": "Externe Plattform Video-ID",
-    "ganymedeVideoIdLabel": "Ganymed Video-ID",
+    "DuckVODVideoIdLabel": "Ganymed Video-ID",
     "streamedAtLabel": "Gestreamt am",
     "taskRestartedNotification": "Aufgabe neu gestartet.",
     "continueWithSubsequentTasksLabel": "Mit nachfolgenden Aufgaben fortfahren",
@@ -717,7 +717,7 @@
     "gridHeight": "Gitterhöhe"
   },
   "LandingHeroComponent": {
-    "subtitle": "Eine Plattform zum Archivieren von Live-Streams und Videos",
+    "subtitle": "Eine Plattform zum Archivieren von Livestreams und Videos im Teich.",
     "channelsButton": "Kanäle",
     "loginButton": "Anmelden"
   },
