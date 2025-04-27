@@ -642,7 +642,7 @@
     "saveInformationTitle": "Informationen speichern",
     "downloadThumbnailsTitle": "Vorschaubilder herunterladen",
     "externalPlatformVideoIdLabel": "Externe Plattform Video-ID",
-    "DuckVODVideoIdLabel": "Ganymed Video-ID",
+    "GanymedeVideoIdLabel": "Video-ID",
     "streamedAtLabel": "Gestreamt am",
     "taskRestartedNotification": "Aufgabe neu gestartet.",
     "continueWithSubsequentTasksLabel": "Mit nachfolgenden Aufgaben fortfahren",

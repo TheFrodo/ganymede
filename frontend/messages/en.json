@@ -660,7 +660,7 @@
     "saveInformationTitle": "Save Information",
     "downloadThumbnailsTitle": "Download Thumbnails",
     "externalPlatformVideoIdLabel": "External Platform Video ID",
-    "DuckVODVideoIdLabel": "DuckVOD Video ID",
+    "GanymedeVideoIdLabel": "Video ID",
     "streamedAtLabel": "Streamed At",
     "taskRestartedNotification": "Task restarted",
     "taskRestartText": "Restart queue task {taskName}?",
