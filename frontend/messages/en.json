@@ -612,7 +612,7 @@
     "errorLoggingInNotification": "Error logging in",
     "registerSuccessNotification": "Registered successfully, please login",
     "errorRegisteringNotification": "Error registering",
-    "welcomeText": "Welcome to DuckVOD",
+    "welcomeText": "Welcome to DuckVOD.net",
     "ssoButton": "Single Single On (SSO)",
     "localCredentialsLabel": "Or continue with local credentials",
     "usernameLabel": "Username",
