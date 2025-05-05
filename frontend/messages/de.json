@@ -717,6 +717,7 @@
     "gridHeight": "Gitterhöhe"
   },
   "LandingHeroComponent": {
+    "title": "DuckVOD.net",
     "subtitle": "Eine Plattform zum Archivieren von Livestreams und Videos im Teich.",
     "channelsButton": "Kanäle",
     "loginButton": "Anmelden"

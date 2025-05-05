@@ -19,7 +19,7 @@ export function LandingHero() {
         <Group justify="space-between">
 
           <div>
-            <Text className={classes.title}>DuckVOD</Text>
+            <Text className={classes.title}>{t('title')}</Text>
             <Title c={theme.colors.gray[3]} mt={5} order={3}>{t('subtitle')}</Title>
             <Flex mt={10}>
               <Button
@@ -46,7 +46,7 @@ export function LandingHero() {
             <Box>
               <Flex justify={"center"} align={"center"}>
                 <div className={classes.logoBackground}></div>
-                <Image src="/images/ganymede_logo.png" height={100} width={100} alt="Ganymede logo" className={classes.logo} />
+                <Image src="/images/duckvod/duckvod_logo.png" height={100} width={100} alt="DuckVOD logo" className={classes.logo} />
               </Flex>
             </Box>
           )}
