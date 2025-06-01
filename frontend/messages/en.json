@@ -747,6 +747,7 @@
     "gridHeight": "Grid height"
   },
   "LandingHeroComponent": {
+    "title": "DuckVOD.net",
     "subtitle": "A platform for archiving livestreams and videos in the pond",
     "channelsButton": "Channels",
     "loginButton": "Login"
