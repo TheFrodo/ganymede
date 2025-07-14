@@ -50,7 +50,7 @@ Visit the [docs](https://github.com/Zibbp/ganymede/tree/main/docs) folder for th
 
 ## Translations
 
-See the [messages](https://github.com/Zibbp/ganymede/tree/main/frontend/messages) directory for available translations. If you would like to add a new translation, please create a pull request with the new translation file. The file should be named `<language>.json` where `<language>` is the language code (e.g. `de.json` for German). Additionally the language needs to be added to the navbar in the `frontend/app/layout/Navbar.tsx` file in the `languages` array.
+See the [messages](https://github.com/Zibbp/ganymede/tree/main/frontend/messages) directory for available translations. If you would like to add a new translation, please create a pull request with the new translation file. The file should be named `<language>.json` where `<language>` is the language code (e.g. `de.json` for German). Additionally the language needs to be added to the navbar in the `frontend/app/layout/Navbar.tsx` file in the `languages` array. Use the `frontend/translation-coverage.js` script to see what has been translated or with the `-u` option to populate missing keys in translation files. 
 
 ## Installation
 
@@ -126,6 +126,7 @@ The `docker-compose.yml` file has comments for each environment variable. Below 
 | `REQUIRE_LOGIN`                         | Frontend: `true/false` Require users to be logged in to view videos (defaults to false).                                        |
 | `SHOW_LOCALE_BUTTON`                    | Frontend: `true/false` Show the locale/language button on the navbar (defaults to true).                                        |
 | `DEFAULT_LOCALE`                        | Frontend: Sets the default locale/language. Must be the short code of the language. Example: `en` for English, `de` for German. |
+| `FORCE_LOGIN`                           | Frontend: `true/false` Force require users to login to view any page (defaults to false).                                       |
 
 ##### DB
 

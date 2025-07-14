@@ -20,6 +20,7 @@ import (
 	entVod "github.com/zibbp/ganymede/ent/vod"
 	"github.com/zibbp/ganymede/internal/archive"
 	"github.com/zibbp/ganymede/internal/chapter"
+	"github.com/zibbp/ganymede/internal/config"
 	"github.com/zibbp/ganymede/internal/database"
 	"github.com/zibbp/ganymede/internal/notification"
 	"github.com/zibbp/ganymede/internal/platform"
@@ -234,8 +235,9 @@ func (s *Service) Check(ctx context.Context) error {
 
 		twitchStreams, err := s.PlatformTwitch.GetLiveStreams(ctx, channels)
 		if err != nil {
-			if errors.Is(err, &platform.ErrorNoStreamsFound{}) {
-				log.Debug().Msg("no streams found")
+			var e platform.ErrorNoStreamsFound
+			if errors.As(err, &e) {
+				log.Debug().Msgf("live stream not found for channels: %s, skipping", strings.Join(channels, ", "))
 				continue
 			} else {
 				return fmt.Errorf("error getting live streams: %v", err)
@@ -308,7 +310,6 @@ OUTER:
 					}
 				}
 
-				log.Debug().Msgf("%s is now live", lwc.Edges.Channel.Name)
 				// check if stream is already being archived
 				queueItems, err := database.DB().Client.Queue.Query().Where(queue.Processing(true)).WithVod().All(context.Background())
 				if err != nil {
@@ -317,9 +318,25 @@ OUTER:
 				for _, queueItem := range queueItems {
 					if queueItem.Edges.Vod.ExtID == stream.ID && queueItem.TaskVideoDownload == utils.Running {
 						log.Debug().Msgf("%s is already being archived", lwc.Edges.Channel.Name)
-						return nil
+						continue OUTER
 					}
 				}
+
+				// Check if the stream is really live or if the API is just slow to update (GH#760)
+				// This is behind an experimental flag
+				if config.Get().Experimental.BetterLiveStreamDetectionAndCleanup {
+					log.Debug().Msgf("checking if %s is really live", lwc.Edges.Channel.Name)
+					isLive, err := s.PlatformTwitch.CheckIfStreamIsLive(ctx, lwc.Edges.Channel.Name)
+					if err != nil {
+						log.Error().Err(err).Msg("error checking if stream is live")
+						continue OUTER
+					}
+					if !isLive {
+						log.Info().Msgf("%s is not live, skipping archiving", lwc.Edges.Channel.Name)
+						continue OUTER
+					}
+				}
+
 				// Archive stream
 				err = s.ArchiveService.ArchiveLivestream(ctx, archive.ArchiveVideoInput{
 					ChannelId:   lwc.Edges.Channel.ID,
@@ -337,6 +354,8 @@ OUTER:
 				if err != nil {
 					log.Error().Err(err).Msg("error updating live watched channel")
 				}
+
+				log.Info().Msgf("started live archive of %s", lwc.Edges.Channel.Name)
 
 				// Notification
 				// Fetch channel for notification

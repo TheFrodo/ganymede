@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
@@ -132,7 +133,7 @@ func (c *TwitchConnection) GetLiveStream(ctx context.Context, channelName string
 	}
 
 	if len(resp.Data) == 0 {
-		return nil, fmt.Errorf("no streams found")
+		return nil, fmt.Errorf("failed to fetch stream for channel %s: %w", channelName, ErrorNoStreamsFound{})
 	}
 
 	startedAt, err := time.Parse(time.RFC3339, resp.Data[0].StartedAt)
@@ -176,7 +177,7 @@ func (c *TwitchConnection) GetLiveStreams(ctx context.Context, channelNames []st
 	}
 
 	if len(resp.Data) == 0 {
-		return nil, &ErrorNoStreamsFound{}
+		return nil, fmt.Errorf("failed to fetch stream for channels: %w", ErrorNoStreamsFound{})
 	}
 
 	streams := make([]LiveStreamInfo, 0, len(resp.Data))
@@ -777,4 +778,38 @@ func (c *TwitchConnection) GetClip(ctx context.Context, id string) (*ClipInfo, e
 	}
 
 	return &info, nil
+}
+
+// CheckIfStreamIsLive checks if a Twitch stream is live by attempting to parse the m3u8 playlist of the stream.
+func (c *TwitchConnection) CheckIfStreamIsLive(ctx context.Context, channelName string) (bool, error) {
+	token, err := c.TwitchGQLGetPlaybackAccessToken(channelName)
+	if err != nil {
+		return false, fmt.Errorf("failed to get playback access token: %v", err)
+	}
+	// Construct the m3u8 URL for the stream
+	m3u8URL := fmt.Sprintf("https://usher.ttvnw.net/api/channel/hls/%s.m3u8?sig=%s&token=%s", channelName, token.Signature, token.Value)
+
+	client := &http.Client{
+		Timeout: 10 * time.Second,
+	}
+	// HTTP request to fetch the m3u8 playlist
+	req, err := http.NewRequest("GET", m3u8URL, nil)
+	if err != nil {
+		return false, fmt.Errorf("failed to create request: %v", err)
+	}
+	req.Header.Set("User-Agent", utils.ChromeUserAgent)
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return false, fmt.Errorf("failed to fetch m3u8 playlist: %v", err)
+	}
+	defer resp.Body.Close() //nolint:errcheck
+
+	// If the response status is not 200 or 403 the stream is not live
+	// This request is not authenticated, so it can return 403 if the stream is sub-only or geo-blocked
+	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusForbidden {
+		return false, fmt.Errorf("received unexpected status code: %d", resp.StatusCode)
+	}
+
+	return true, nil
 }
